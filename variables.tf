@@ -3,11 +3,6 @@ variable "api_endpoint" {
   description = "The Intersight end point"*/
   default = "https://www.intersight.com"
 }
-variable "k8s_version" {
-  type        = string
-  description = "Kubernetes Version to be installed"
-  default     = "1.19.5"
-}
 variable "vc_target_name" {
   type        = string
   description = "Target name as referenced in Intersight.  vCenter is currently the only supported target."
