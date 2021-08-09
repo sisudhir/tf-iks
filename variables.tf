@@ -1,7 +1,29 @@
+variable "api_key" {
+  type = string
+  description = "API Key Id from Intersight"
+}
+variable "secretkey" {
+  type = string
+  description = "The path to your secretkey file for Intersight"
+}
 variable "api_endpoint" {
   /*type = string
   description = "The Intersight end point"*/
   default = "https://www.intersight.com"
+}
+
+variable "k8s_version" {
+  type        = string
+  description = "Kubernetes Version to be installed"
+  default     = "1.19.5"
+}
+variable "cluster_name" {
+  type        = string
+  description = "Name to be given to the cluster.  This will also prefix all attributes created by this module."
+}
+variable "cluster_action" {
+  type        = string
+  description = "Cluster action wanted (ex. Deploy or Unassign)"
 }
 variable "vc_target_name" {
   type        = string
@@ -52,7 +74,6 @@ variable "vc_password" {
   sensitive   = true
   type        = string
   description = "Password of the account to be used with vCenter.  This should be the password for the account used to register vCenter with Intersight."
-  default     = "Nbv12345!"
 }
 variable "vc_resource_pool" {
   type        = string
@@ -122,7 +143,6 @@ variable "ssh_user" {
 variable "ssh_key" {
   type        = string
   description = "SSH Public Key to be used to node login."
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILtpbNlrGazDu5ubDJDi+XQbMw1f5Uvf91wC4OQ2qiVy SISUDHIR-M-91J9-10-06-2020"
 }
 variable "wait_for_completion" {
   type        = bool
